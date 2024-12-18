@@ -1,0 +1,17 @@
+
+
+<form #f="ngForm" >
+  
+<div>title:</div> <input type="text" placeholder="Title" name="title" [(ngModel)]="album.title" required #t="ngModel"/>
+   <div *ngIf="t.invalid && (t.dirty || t.touched)">title is required
+
+   </div>
+
+<div> photodecouverture</div><input type="text" placeholder="photodecouverture" name="disc" [(ngModel)]="album.coverPicture"  required minlength="10" #d="ngModel"/>
+
+<div *ngIf="d.errors!['required']">cover photo is required</div>
+<div *ngIf="d.errors!['minlength']">Covert Photo must be at least 5 characters long.</div>
+
+
+<button type="submit" [disabled]="f.invalid">Submit</button>
+</form>
